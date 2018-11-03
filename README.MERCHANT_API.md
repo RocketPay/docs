@@ -13,9 +13,7 @@
 
 ## Account
 
-### User Registration
-
-**`[POST] /api/v1/users`**
+**`[POST] /api/v1/users` - User Registration**
 
 Принимаемые параметры:
 
@@ -29,12 +27,16 @@ _Request_
 curl 'http://merchant.rocketpay.ru/api/v1/users' \
     -X POST \
     -H 'Content-Type: application/json' \
-    -d '{"email": "vanzhiganov@ya.ru", "password": "password"}'
+    -d '{"email": "example@email.com", "password": "password"}'
 ```
 
-### Password reset
+_Response_
 
-**`[POST] /api/v1/users/password_reset`**
+```json
+{}
+```
+
+**`[POST] /api/v1/users/password_reset` - Password reset**
 
 Отправка кода на email или sms
 
@@ -49,14 +51,22 @@ _Request_
 curl 'http://merchant.rocketpay.ru/api/v1/users/password_reset' \
     -X POST \
     -H 'Content-Type: application/json' \
-    -d '{"email": "vanzhiganov@ya.ru"}'
+    -d '{"email": "example@email.com"}'
 ```
+
+или
 
 ```bash
 curl 'http://merchant.rocketpay.ru/api/v1/users/password_reset' \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"mobile_phone": "79154747270"}'
+```
+
+_Response_
+
+```json
+{}
 ```
 
 **`[PUT] /api/v1/users/password_reset`**
@@ -72,12 +82,21 @@ curl 'http://merchant.rocketpay.ru/api/v1/users/password_reset' \
 curl 'http://merchant.rocketpay.ru/api/v1/users/password_reset' \
     -X PUT \
     -H 'Content-Type: application/json' \
-    -d '{"code": "877739ce-d368-11e8-8b17-87c00c06382d", "password": "password"}'
+    -d '{
+        "code": "877739ce-d368-11e8-8b17-87c00c06382d",
+        "password": "password"
+    }'
+```
+
+_Response_
+
+```json
+{}
 ```
 
 ## Tokens
 
-### Create new Token
+**`[POST] /api/v1/tokens` - Create new Token**
 
 Принимаемые параметры:
 
@@ -89,12 +108,18 @@ curl 'http://merchant.rocketpay.ru/api/v1/users/password_reset' \
 curl 'http://merchant.rocketpay.ru/api/v1/tokens' \
     -X POST \
     -H 'Content-Type: application/json' \
-    -d '{"email": "vanzhiganov@ya.ru", "password": "password"}'
+    -d '{"email": "example@email.com", "password": "password"}'
+```
+
+_Response_
+
+```json
+{}
 ```
 
 ## Merchants
 
-### Get Merchants
+**`[GET] /api/v1/merchants` - Get Merchants**
 
 _Request_
 
@@ -104,7 +129,13 @@ curl 'http://merchant.rocketpay.ru/api/v1/merchants' \
     -H 'X-Token: ...'
 ```
 
-### Create merchant
+_Response_
+
+```json
+{}
+```
+
+**`[POST] /api/v1/merchants` - Create merchant**
     
 _Request_
 
@@ -113,12 +144,16 @@ curl 'http://merchant.rocketpay.ru/api/v1/merchants' \
     -X POST \
     -H 'Content-Type: application/json' \
     -H 'X-Token: ...' \
-    -d '{"email": "vanzhiganov@ya.ru", "password": "password"}'
+    -d '{"email": "example@email.com", "password": "password"}'
 ```
 
-### Update merchant details
+_Response_
 
-**`[PUT] /api/v1/merchants/{int:merchant_id}`**
+```json
+{}
+```
+
+**`[PUT] /api/v1/merchants/{int:merchant_id}` - Update merchant details**
 
 _Request_
 
@@ -128,6 +163,12 @@ curl 'http://merchant.rocketpay.ru/api/v1/merchants/1' \
     -H 'X-Token: ...' \
     -H 'Content-Type: application/json' \
     -d '{"url_website": "https://gocloud.ru"}'
+```
+
+_Response_
+
+```json
+{}
 ```
 
 ## Reports
@@ -177,4 +218,10 @@ curl 'http://merchant.rocketpay.ru/api/v1/merchants/1/reports' \
     -H 'X-Token: ...' \
     -H 'Content-Type: application/json' \
     -d '{"enable": 1}'
+```
+
+_Response_
+
+```json
+{}
 ```
